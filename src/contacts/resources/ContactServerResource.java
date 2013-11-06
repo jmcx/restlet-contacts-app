@@ -2,7 +2,6 @@ package contacts.resources;
 
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
-import org.restlet.resource.Post;
 import org.restlet.resource.Put;
 import org.restlet.resource.ServerResource;
 
@@ -13,10 +12,11 @@ public class ContactServerResource extends ServerResource implements ContactReso
 	
 	@Get
     public String represent() {
+		String uuid = (String) getRequest().getAttributes().get("uuid");
+		System.out.println("uudi: " + uuid);
         return "" + contact.getName() + ", " + contact.getEmail();
     }
 
-    
 	public Contact retrieve() {
 		return contact;
 	}
@@ -24,11 +24,6 @@ public class ContactServerResource extends ServerResource implements ContactReso
 	@Put
 	public void store(Contact contact) {
 		ContactServerResource.contact = contact;		
-	}
-
-	@Post
-	public void create(Contact contact) {
-		
 	}
 	
 	@Delete

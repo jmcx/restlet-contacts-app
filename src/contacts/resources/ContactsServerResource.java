@@ -8,9 +8,14 @@ import org.restlet.resource.ServerResource;
 
 public class ContactsServerResource extends ServerResource implements ContactsResource {
 
+//	@Get
+//    public String represent() {
+//        return "" + contact.getName() + ", " + contact.getEmail();
+//    }
+	
 	@Get
 	public HashMap<String, Contact> retrieve() {
-		// TODO Auto-generated method stub
+		// this.getRequest().
 		return null;
 	}
 

@@ -16,7 +16,7 @@ public class Main {
 	    component.getServers().add(Protocol.HTTP, 8182);  
 
 	    // Attach the sample application.  
-	    component.getDefaultHost().attach("/contacts",  
+	    component.getDefaultHost().attach("/contactsapp",  
 	            new ContactsApplication());  
 
 	    // Start the component.  
