@@ -7,6 +7,10 @@ import org.restlet.routing.Router;
 import contacts.resources.ContactServerResource;
 import contacts.resources.ContactsServerResource;
 
+/*
+ * Contacts list application
+ */
+
 public class ContactsApplication extends Application {
 
 	/**

@@ -2,6 +2,12 @@ package contacts.resources;
 
 import java.util.HashMap;
 
+/*
+ * In memory persistence management class. 
+ * Uses the singleton pattern to make sure 
+ * there is only one data access object.
+ */
+
 public class ContactsPersist {
 
 	private HashMap<String,Contact> contacts;
@@ -44,9 +50,10 @@ public class ContactsPersist {
 		contacts.put(contact.getUuid(), contact);
 	}
 
-	public void delete(Contact contact) {
-		contacts.remove(contact.getUuid());
+	public void delete(String uuid) {
+		contacts.remove(uuid);
 	}
+	
 
 
 }

@@ -3,6 +3,10 @@ package contacts.app;
 import org.restlet.Component;
 import org.restlet.data.Protocol;
 
+/*
+ * Main class that starts the HTTP server and runs the contacts application
+ */
+
 public class Main {
 
 	/**

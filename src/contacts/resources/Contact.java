@@ -1,5 +1,9 @@
 package contacts.resources;
 
+/*
+ * Java class that defines the contact entity
+ */
+
 public class Contact {
 	
 	String uuid;
