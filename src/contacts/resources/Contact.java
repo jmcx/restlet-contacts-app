@@ -6,13 +6,13 @@ public class Contact {
 	String name;
 	String email;
 	
-	public Contact(String id, String name, String email) {
-		this.uuid = id;
+	public Contact(String uuid, String name, String email) {
+		this.uuid = uuid;
 		this.name = name;
 		this.email = email;
 	}
 
-	public String getId() {
+	public String getUuid() {
 		return uuid;
 	}
 

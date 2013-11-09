@@ -1,22 +1,22 @@
 package contacts.resources;
 
-import java.util.HashMap;
 
+import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.Get;
 import org.restlet.resource.Post;
 import org.restlet.resource.ServerResource;
+import contacts.utils.*;
 
-public class ContactsServerResource extends ServerResource implements ContactsResource {
+public class ContactsServerResource extends ServerResource {
 
 //	@Get
 //    public String represent() {
 //        return "" + contact.getName() + ", " + contact.getEmail();
 //    }
 	
-	@Get
-	public HashMap<String, Contact> retrieve() {
-		// this.getRequest().
-		return null;
+	@Get("json")
+	public StringRepresentation toJson() {
+		return JsonUtils.representContactsJson(ContactsPersist.getInstance().retrieveAll());
 	}
 
 	@Post
