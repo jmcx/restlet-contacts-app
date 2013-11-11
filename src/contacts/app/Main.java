@@ -17,7 +17,9 @@ public class Main {
 	    Component component = new Component();  
 
 	    // Add a new HTTP server listening on port 8182.  
-	    component.getServers().add(Protocol.HTTP, 8182);  
+	    component.getServers().add(Protocol.HTTP, 8182);
+	    component.getClients().add(Protocol.FILE); 
+	    
 
 	    // Attach the sample application.  
 	    component.getDefaultHost().attach("/contactsapp",  

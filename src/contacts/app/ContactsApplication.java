@@ -2,6 +2,7 @@ package contacts.app;
 
 import org.restlet.Application;
 import org.restlet.Restlet;
+import org.restlet.resource.Directory;
 import org.restlet.routing.Router;
 
 import contacts.resources.ContactServerResource;
@@ -21,6 +22,11 @@ public class ContactsApplication extends Application {
 		// Create a router Restlet that routes each call to a new instance of HelloWorldResource.
 		Router router = new Router(getContext());
 
+		Directory directory = new Directory(getContext(), "file:///C:/Users/Jonathan/Documents/dev/restlet/restlet-contacts-app/WebContent/contacts-webapp/app/");
+		
+		// Defines a route for static files
+		router.attach("/static/", directory);
+		
 		// Defines a route for the resource "list of contacts"	
 		router.attach("/contacts", ContactsServerResource.class);
 		// Defines a route for the resource "contact"

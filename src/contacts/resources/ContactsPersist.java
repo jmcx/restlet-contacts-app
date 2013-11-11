@@ -38,6 +38,7 @@ public class ContactsPersist {
 		if (contacts.containsKey(uuid)){
 			return contacts.get(uuid);
 		} else {
+			// Return a fake contact if the requested ID doesn't exist, should be updated to return a 404 or something
 			return new Contact("testId", "testName", 1000, "testEmail");
 		}
 	}
