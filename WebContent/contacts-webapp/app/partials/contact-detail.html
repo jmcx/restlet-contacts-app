@@ -1,1 +1,24 @@
-TBD: detail view for {{phoneId}}
+<img ng-src="img/{{contact.uuid}}.jpg" class="contact">
+
+<h1>{{contact.name}}</h1>
+
+<p>{{contact.email}}</p>
+
+<ul class="info">
+	<li><span>Personal Information</span>
+		<dl>
+			<dt>Name</dt>
+			<dd>{{contact.name}}</dd>
+			<dt>Age</dt>
+			<dd>{{contact.age}}</dd>
+		</dl>
+	</li>
+	<li><span>Contact Information</span>
+		<dl>
+			<dt>Email</dt>
+			<dd>{{contact.email}}</dd>
+			<dt>User ID</dt>
+			<dd>{{contact.uuid}}</dd>
+		</dl>
+	</li>
+</ul>

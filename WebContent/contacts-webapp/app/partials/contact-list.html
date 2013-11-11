@@ -19,6 +19,7 @@
 					<a href="http://localhost:8182/contactsapp/contacts/{{contact.uuid}}" class="thumb"><img ng-src="img/{{contact.uuid}}.jpg"> </a> 
 <!-- 					<a href="http://localhost:8182/contactsapp/contacts/{{contact.uuid}}">{{contact.name}}</a> -->
 					<a href="#/contacts/{{contact.uuid}}">{{contact.name}}</a>
+					<p>over 25?: {{contact.age > 25 | checkmark}}</p>
 				</li>
 			</ul>
 
