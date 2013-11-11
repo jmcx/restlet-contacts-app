@@ -24,7 +24,7 @@ public class ContactServerResource extends ServerResource {
 	@Put("json")
 	public void storeJson(String value) {
 		JSONObject o = new JSONObject(value);
-		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getString("email"));
+		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getInt("age"), o.getString("email"));
 		ContactsPersist.getInstance().store(c);
 	}
 

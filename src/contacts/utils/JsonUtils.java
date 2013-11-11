@@ -31,6 +31,6 @@ public class JsonUtils {
 	}
 
 	private static String contactToJson(Contact contact){
-		return "{ \"uuid\": \"" + contact.getUuid() + "\", \"name\": \"" + contact.getName() + "\", \"email\": \"" + contact.getEmail() + "\" }";
+		return "{ \"uuid\": \"" + contact.getUuid() + "\", \"name\": \"" + contact.getName() + "\", \"age\": \"" + contact.getAge() + "\", \"email\": \"" + contact.getEmail() + "\" }";
 	}
 }

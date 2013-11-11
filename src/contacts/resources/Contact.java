@@ -8,11 +8,13 @@ public class Contact {
 	
 	String uuid;
 	String name;
+	Integer age;
 	String email;
 	
-	public Contact(String uuid, String name, String email) {
+	public Contact(String uuid, String name, Integer age, String email) {
 		this.uuid = uuid;
 		this.name = name;
+		this.age = age;
 		this.email = email;
 	}
 
@@ -32,6 +34,14 @@ public class Contact {
 		this.name = name;
 	}
 
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+	
 	public String getEmail() {
 		return email;
 	}

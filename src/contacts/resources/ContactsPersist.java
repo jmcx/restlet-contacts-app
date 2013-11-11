@@ -27,8 +27,8 @@ public class ContactsPersist {
 
 	public void init(){
 		this.contacts = new HashMap<String, Contact>();
-		contacts.put("tonyid", new Contact("tonyid", "tony", "tony@email.com"));
-		contacts.put("tomid", new Contact("tomid", "tom", "tom@email.com"));
+		contacts.put("tonyid", new Contact("tonyid", "tony", 26, "tony@email.com"));
+		contacts.put("tomid", new Contact("tomid", "tom", 40, "tom@email.com"));
 	}
 
 	public Contact retrieve(String uuid) {
@@ -38,7 +38,7 @@ public class ContactsPersist {
 		if (contacts.containsKey(uuid)){
 			return contacts.get(uuid);
 		} else {
-			return new Contact("testId", "testName", "testEmail");
+			return new Contact("testId", "testName", 1000, "testEmail");
 		}
 	}
 	

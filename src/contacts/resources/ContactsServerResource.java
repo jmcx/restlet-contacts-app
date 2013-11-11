@@ -22,7 +22,7 @@ public class ContactsServerResource extends ServerResource {
 	@Post("json")
 	public void create(String value) {
 		JSONObject o = new JSONObject(value);
-		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getString("email"));
+		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getInt("age"), o.getString("email"));
 		ContactsPersist.getInstance().store(c);
 	}
 
