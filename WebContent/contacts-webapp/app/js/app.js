@@ -1,16 +1,24 @@
 'use strict';
 
+/* App Module */
 
-// Declare app level module which depends on filters, and services
-angular.module('myApp', [
+var contactsApp = angular.module('contactsApp', [
   'ngRoute',
-  'myApp.filters',
-  'myApp.services',
-  'myApp.directives',
-  'myApp.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {templateUrl: 'partials/partial1.html', controller: 'MyCtrl1'});
-  $routeProvider.when('/view2', {templateUrl: 'partials/partial2.html', controller: 'MyCtrl2'});
-  $routeProvider.otherwise({redirectTo: '/view1'});
-}]);
+  'contactsControllers'
+]);
+
+contactsApp.config(['$routeProvider',
+  function($routeProvider) {
+    $routeProvider.
+      when('/contacts', {
+        templateUrl: 'partials/contact-list.html',
+        controller: 'ContactListCtrl'
+      }).
+      when('/contacts/:uuid', {
+        templateUrl: 'partials/contact-detail.html',
+        controller: 'ContactDetailCtrl'
+      }).
+      otherwise({
+        redirectTo: '/contacts'
+      });
+  }]);

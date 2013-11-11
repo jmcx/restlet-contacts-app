@@ -2,9 +2,9 @@
 
 /* Controllers */
 
-var contactsApp = angular.module('contactsApp', []);
+var contactsControllers = angular.module('contactsControllers', []);
 
-contactsApp.controller('ContactListCtrl', function ContactListCtrl($scope, $http) {
+contactsControllers.controller('ContactListCtrl', function ContactListCtrl($scope, $http) {
 	$http.get('http://localhost:8182/contactsapp/contacts').
 	success(function(data) {
 		$scope.contacts = data;
@@ -17,3 +17,7 @@ contactsApp.controller('ContactListCtrl', function ContactListCtrl($scope, $http
 
 	$scope.orderProp = 'age';
 });
+
+contactsControllers.controller('ContactDetailCtrl', ['$scope', '$routeParams', function($scope, $routeParams) {
+	$scope.uuid = $routeParams.uuid;
+}]);
