@@ -1,5 +1,5 @@
-<img ng-src="img/{{contact.uuid}}.jpg" class="contact">
 
+<img ng-src="img/{{contact.uuid}}.jpg">
 <h1>{{contact.name}}</h1>
 
 <p>{{contact.email}}</p>
@@ -22,3 +22,5 @@
 		</dl>
 	</li>
 </ul>
+
+<button type="button" ng-click="remove()">Delete contact</button>

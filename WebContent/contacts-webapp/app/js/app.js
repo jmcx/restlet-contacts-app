@@ -5,7 +5,8 @@
 var contactsApp = angular.module('contactsApp', [
   'ngRoute',
   'contactsControllers',
-  'contactsFilters'
+  'contactsFilters',
+  'contactsServices'
 ]);
 
 contactsApp.config(['$routeProvider',
@@ -15,7 +16,7 @@ contactsApp.config(['$routeProvider',
         templateUrl: 'partials/contact-list.html',
         controller: 'ContactListCtrl'
       }).
-      when('/contacts/:uuid', {
+      when('/contacts/:contactId', {
         templateUrl: 'partials/contact-detail.html',
         controller: 'ContactDetailCtrl'
       }).

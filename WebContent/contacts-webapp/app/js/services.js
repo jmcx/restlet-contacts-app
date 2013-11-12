@@ -2,8 +2,38 @@
 
 /* Services */
 
+var contactsServices = angular.module('contactsServices', ['ngResource']);
 
-// Demonstrate how to register services
-// In this case it is a simple value service.
-angular.module('myApp.services', []).
-  value('version', '0.1');
+//contactsServices.factory('Contacts', ['$resource', function($resource){
+//    return $resource('http://localhost:8182/contactsapp/:contactId', {}, {
+//    	query: {method:'GET', params:{contactId:'contacts'}, isArray:true}
+//    });
+//  }]);
+
+contactsServices.factory('Contacts', ['$resource', function($resource){
+    return $resource('http://localhost:8182/contactsapp/contacts', {}, {
+    	query: {method:'GET', params:{}, isArray:true}
+//    	store: {method: 'POST', params:{uuid:''}}
+//    	query: {method:'GET', {}, isArray:true}
+    });
+  }]);
+
+contactsServices.factory('Contact', ['$resource', function($resource){
+	return $resource('http://localhost:8182/contactsapp/contacts/:contactId', {}, {
+//		query: {method:'GET', params:{contactId:'contacts'}, isArray:true}
+	});
+}]);
+
+
+
+
+
+
+
+
+
+
+
+
+//,
+//querySingle: {method:'GET', params:{contactId:'contacts/'{{contact.uuid}}}, isArray:true}
