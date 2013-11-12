@@ -12,24 +12,23 @@ contactsControllers.controller('ContactListCtrl', ['$scope', 'Contacts',
 	
 	$scope.create = function create(user){
 		Contacts.save('http://localhost:8182/contactsapp/contacts/',user);
+		$scope.contacts += user;
+		$scope.contacts = Contacts.query();
 	}
 	
 }]);
 
-contactsControllers.controller('ContactDetailCtrl', ['$scope', '$routeParams', 'Contact',
-  function($scope, $routeParams, Contact) {
+contactsControllers.controller('ContactDetailCtrl', ['$scope', '$routeParams', '$location', 'Contact',
+  function($scope, $routeParams, $location, Contact) {
 	
 	$scope.contact = Contact.get({contactId: $routeParams.contactId});
 	
 	$scope.remove = function remove(){
 		Contact.remove({contactId: $routeParams.contactId});
+		$location.path("http://localhost:8182/contactsapp/contacts");
+//		$scope.contacts.splice( $scope.contacts.indexOf($routeParams.contactId), 1 );
 	}
 	
-//	$scope.deleteContact = Contact.delete({contactId: $routeParams.contactId});
-
-//	$scope.setImage = function(imageUrl) {
-//		$scope.mainImageUrl = imageUrl;
-//	}
 }]);
 
 
