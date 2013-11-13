@@ -22,6 +22,7 @@ public class ContactsApplication extends Application {
 		// Create a router Restlet that routes each call to a new instance of HelloWorldResource.
 		Router router = new Router(getContext());
 
+		// Defines a finder for a directory of local resources
 		Directory directory = new Directory(getContext(), "file:///C:/Users/Jonathan/Documents/dev/restlet/restlet-contacts-app/WebContent/contacts-webapp/app/");
 		
 		// Defines a route for static files

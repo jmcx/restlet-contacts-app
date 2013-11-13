@@ -18,6 +18,7 @@ public class Main {
 
 	    // Add a new HTTP server listening on port 8182.  
 	    component.getServers().add(Protocol.HTTP, 8182);
+	    // For access to local static files (web application)
 	    component.getClients().add(Protocol.FILE); 
 	    
 
