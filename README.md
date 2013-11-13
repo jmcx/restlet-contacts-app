@@ -22,4 +22,6 @@ Make sure org.restlet.jar is in the project's classpath.
 
 Run the contacts.app.Main.java main program. This will start a simple http server and you should be able to access the application with a browser at the URL "http://localhost:8182/contactsapp/static/index.html". 
 
+To run the tests (TestMain.java), you must include the required JUnit jar.
+
 That should be it! 
