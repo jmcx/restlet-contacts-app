@@ -1,9 +1,12 @@
 package contacts.resources;
 
 
+import java.io.IOException;
+
 import org.json.JSONObject;
 import org.restlet.data.MediaType;
 import org.restlet.data.Status;
+import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.representation.Representation;
 import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.Get;
@@ -18,7 +21,7 @@ import contacts.utils.*;
 public class ContactsServerResource extends ServerResource {
 	
 	@Get("json")
-	public StringRepresentation toJson() {
+	public Representation toJson() {
 		return JsonUtils.representContactsJson(ContactsPersist.getInstance().retrieveAll());
 	}
 
@@ -27,7 +30,7 @@ public class ContactsServerResource extends ServerResource {
 		Representation result = null;
 		JSONObject o = new JSONObject(value);
 		String uuid = o.getString("uuid");
-		// Only create a contact if one with the same uuid doesn't already exist
+		// Only create a contact if one with the same uuid doe
 		if (!ContactsPersist.getInstance().containsContact(uuid)){
 			Contact c = new Contact(uuid, o.getString("name"), o.getInt("age"), o.getString("email"));
 			ContactsPersist.getInstance().store(c);

@@ -2,7 +2,7 @@ package contacts.resources;
 
 import org.json.*;
 import org.restlet.data.Status;
-import org.restlet.representation.StringRepresentation;
+import org.restlet.ext.json.JsonRepresentation;
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
 import org.restlet.resource.Put;
@@ -17,7 +17,7 @@ import contacts.utils.JsonUtils;
 public class ContactServerResource extends ServerResource {
 	
 	@Get("json")
-	public StringRepresentation toJson() {
+	public JsonRepresentation toJson() {
 		String uuid = (String) getRequest().getAttributes().get("uuid");
 		return JsonUtils.representContactJson(ContactsPersist.getInstance().retrieve(uuid));
 	}

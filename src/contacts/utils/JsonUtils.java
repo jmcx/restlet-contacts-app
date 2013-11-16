@@ -4,18 +4,17 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentMap;
 
-import org.restlet.data.MediaType;
-import org.restlet.representation.StringRepresentation;
+import org.restlet.ext.json.JsonRepresentation;
 
 import contacts.resources.Contact;
 
 public class JsonUtils {
 
-	public static StringRepresentation representContactJson(Contact contact){
-		return new StringRepresentation(contactDetailToJson(contact), MediaType.APPLICATION_JSON);
+	public static JsonRepresentation representContactJson(Contact contact){
+		return new JsonRepresentation(contactDetailToJson(contact));
 	}
 
-	public static StringRepresentation representContactsJson(ConcurrentMap<String,Contact> contacts){
+	public static JsonRepresentation representContactsJson(ConcurrentMap<String,Contact> contacts){
 		String s = "[ ";
 		Collection<Contact> values = contacts.values();
 		for (Iterator<Contact> iterator = values.iterator(); iterator.hasNext();) {
@@ -27,7 +26,7 @@ public class JsonUtils {
 		}
 		s+= " ]";
 
-		return new StringRepresentation(s, MediaType.APPLICATION_JSON);
+		return new JsonRepresentation(s);
 	}
 
 	private static String contactSnippetToJson(Contact contact){
