@@ -6,7 +6,7 @@ A simple contact list app built with Restlet.
 how to 
 ====================
 
-Dependencies: This application depends on the restlet framework's org.restlet.jar. You can download the Java SE version directly from http://www.restlet.org. For unit testing, this application depends on JUnit. You can download the latest jar from https://github.com/junit-team/junit/wiki/Download-and-Install. 
+Dependencies: This application depends on the restlet framework's org.restlet.jar and org.restlet.ext.json.jar. You can download the Java SE version directly from http://www.restlet.org. For unit testing, this application depends on JUnit. You can download the latest jar from https://github.com/junit-team/junit/wiki/Download-and-Install. 
 
 Instructions for running the project with eclipse:
 

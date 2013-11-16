@@ -1,6 +1,7 @@
 package contacts.resources;
 
 import org.json.*;
+import org.restlet.data.Status;
 import org.restlet.representation.StringRepresentation;
 import org.restlet.resource.Delete;
 import org.restlet.resource.Get;
@@ -26,11 +27,14 @@ public class ContactServerResource extends ServerResource {
 		JSONObject o = new JSONObject(value);
 		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getInt("age"), o.getString("email"));
 		ContactsPersist.getInstance().store(c);
+		setStatus(Status.SUCCESS_CREATED);
 	}
 
 	@Delete
 	public void remove() {
 		String uuid = (String) getRequest().getAttributes().get("uuid");
 		ContactsPersist.getInstance().delete(uuid);
+		// Tells the client that the request has been successfully fulfilled.
+        setStatus(Status.SUCCESS_NO_CONTENT);
 	}
 }
