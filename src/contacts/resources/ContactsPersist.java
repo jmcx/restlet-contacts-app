@@ -50,6 +50,10 @@ public class ContactsPersist {
 	public void store(Contact contact) {
 		contacts.put(contact.getUuid(), contact);
 	}
+	
+	public boolean containsContact(String uuid){
+		return contacts.containsKey(uuid);
+	}
 
 	public void delete(String uuid) {
 		contacts.remove(uuid);
