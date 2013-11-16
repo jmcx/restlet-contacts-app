@@ -1,6 +1,7 @@
 package contacts.resources;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 /*
  * In memory persistence management class. 
@@ -10,7 +11,7 @@ import java.util.HashMap;
 
 public class ContactsPersist {
 
-	private HashMap<String,Contact> contacts;
+	private ConcurrentMap<String,Contact> contacts;
 
 	private static ContactsPersist instance = null;
 	
@@ -26,7 +27,7 @@ public class ContactsPersist {
 	}
 
 	public void init(){
-		this.contacts = new HashMap<String, Contact>();
+		this.contacts = new ConcurrentHashMap<String, Contact>();
 		contacts.put("tonyid", new Contact("tonyid", "tony", 26, "tony@email.com"));
 		contacts.put("tomid", new Contact("tomid", "tom", 40, "tom@email.com"));
 	}
@@ -43,7 +44,7 @@ public class ContactsPersist {
 		}
 	}
 	
-	public HashMap<String,Contact> retrieveAll(){
+	public ConcurrentMap<String,Contact> retrieveAll(){
 		return contacts;
 	}
 

@@ -1,8 +1,8 @@
 package contacts.utils;
 
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.Iterator;
+import java.util.concurrent.ConcurrentMap;
 
 import org.restlet.data.MediaType;
 import org.restlet.representation.StringRepresentation;
@@ -15,7 +15,7 @@ public class JsonUtils {
 		return new StringRepresentation(contactDetailToJson(contact), MediaType.APPLICATION_JSON);
 	}
 
-	public static StringRepresentation representContactsJson(HashMap<String,Contact> contacts){
+	public static StringRepresentation representContactsJson(ConcurrentMap<String,Contact> contacts){
 		String s = "[ ";
 		Collection<Contact> values = contacts.values();
 		for (Iterator<Contact> iterator = values.iterator(); iterator.hasNext();) {
