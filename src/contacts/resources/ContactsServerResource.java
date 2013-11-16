@@ -27,6 +27,7 @@ public class ContactsServerResource extends ServerResource {
 		Representation result = null;
 		JSONObject o = new JSONObject(value);
 		String uuid = o.getString("uuid");
+		// Only create a contact if one with the same uuid doesn't already exist
 		if (!ContactsPersist.getInstance().containsContact(uuid)){
 			Contact c = new Contact(uuid, o.getString("name"), o.getInt("age"), o.getString("email"));
 			ContactsPersist.getInstance().store(c);

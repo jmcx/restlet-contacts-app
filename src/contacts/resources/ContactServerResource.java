@@ -25,9 +25,15 @@ public class ContactServerResource extends ServerResource {
 	@Put("json")
 	public void storeJson(String value) {
 		JSONObject o = new JSONObject(value);
-		Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getInt("age"), o.getString("email"));
-		ContactsPersist.getInstance().store(c);
-		setStatus(Status.SUCCESS_CREATED);
+		String uuid = o.getString("uuid");
+		// Only update the contact if it exists, don't create a new one
+		if (ContactsPersist.getInstance().containsContact(uuid)){ 
+			Contact c = new Contact(o.getString("uuid"), o.getString("name"), o.getInt("age"), o.getString("email"));
+			ContactsPersist.getInstance().store(c);
+			setStatus(Status.SUCCESS_CREATED);
+		} else {
+			setStatus(Status.SUCCESS_OK);
+		}
 	}
 
 	@Delete
