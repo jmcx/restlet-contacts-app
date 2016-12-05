@@ -3,6 +3,6 @@ swagger: "2.0"
 info:
   description: "My API description"
   version: "1"
-  title: "My API title - test modif - modif in github"
+  title: "My API title - test modif - modif in github - modif in swagger"
 paths: {}
 definitions: {}
