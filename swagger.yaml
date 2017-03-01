@@ -18,6 +18,7 @@ schemes:
 consumes:
   - application/json
   - application/xml
+  - application/x-yaml
 produces:
   - application/json
 paths:
